@@ -7,7 +7,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="app.js"></script>
 </head>
-<body>
+<body ng-click="addPoint($event)">
 	<img class="topo" src="topo-co.jpg" alt="">
+	<div class="marker" ng-repeat="points in map"></div>
 </body>
 </html>
