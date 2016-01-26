@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>Gold Rush</title>
+        <!--external stylesheets-->
+        <link rel="stylesheet" href="normalize.css">
+        <!--dev script-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <!--dev stylesheet-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body ng-controller="myController">
+        <form class="textBox" ng-show="showPop" ng-style="{{spots}}" ng-repeat="spots in coordinates" ng-submit="submit()">
+        <textarea name="popUp" class="textInBox" rows="1" cols="10" ng-model="popForm"></textarea>
+         <button ng-click="popUp($event)" type="submit" value="submit">{{button}}</button>
+        </form>
+        
+		<div ng-click="doClick($event)" class="map">
+<!--had originally made url background image but changed to direct image source-->
+<!--			<img class="map" src="topo-co.jpg"> changing to background image in css url-->
+		</div>
+			<img ng-repeat="spots in coordinates" class="marker" ng-style="{{spots}}" class="marker" ng-click="removeIt($index)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACcklEQVRoQ+2az2oTURTGvzPQFBRsu2iysZgGXHRlsjCCKVo3rkpbEe227lzWJ2j6BOoT2KUZW2nBB0ikFcxm4rqYBPwDSRZOBF20kCP3jv3LxNx07sW03LsMJ2e+77u/c2eYhHDOF51z/dBugB8l0yBnHsQzYKRlQIQKmIrgzha9qVd0hqbVAC+mlgE87yqQ2Qdxngr1l7pMaDPAi5ObAM1LYdemgOQUMDIOtFtA6e1JvYxNcqsPdJjQYuAw+aEYcHsWGJ840tb8CrzfCNP6jArVF1FNRDYgmXccTwq58xCIXwW+fwZ2PcBvAft74RoFTsz3os5EdAOPU3kQViQ2N+8H4j+8UwuWsUpuNa9WHF6lwcBkEUR3D9MvrQOtb2qamEvk1mbUio0ZSPkgjGDuKRAbBtb7OGCYfXJrY4NhQPAvVvjAdpkDtMmtjv5nA38ROouKAUEoGOKzrIEY4uDRoSjnoJ/FaMPppOl1vd7P107XRj6FRMOejxDhCgfjRnag7cSjRM9IeYsKtYWeZQoFWnbgyERqGQwxE+E4CWwIeR2PEAfX1GpA4hTMxMLPiczK5eauvM6v+HVc+eKtwumsRWXeyAyE7fROucHHP89lE9rDEv2NNBWNrQGFAbY78K+QLEIWIcUEupVZhBQDtPcBi5AiKt3KLEIWIYtQxAQsQhEDtKeQRcgiFDGBC4vQ9sdGhQg35LsixqfpW4ngJ1fNy+Ap1FwC+FWgl57ksvE1zdqDziaaip6e92P09/6efPN8aSiWzGTGfBPXMmZAiN0uN2Tq09nEkgnxRndANN8pNyX3uWxc698LjodhdAdMpX6hDPwB8HEOQJTvGx0AAAAASUVORK5CYII=" width="48" height="48">
+	</body>
+</html>
