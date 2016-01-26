@@ -17,7 +17,7 @@ angular.module('myApp')
                 
 //              .spot with client or pageX top left
                 // $scope.popUp = false;
-		        $scope.button = "Mark Comments";
+		        $scope.button = "submit";
 		        $scope.showPop = function($event) {
 			    $scope.popUp = !$scope.popUp
 		      }
@@ -27,6 +27,7 @@ angular.module('myApp')
 				'left': $event.pageX + "px",
 			     }
                 $scope.coordinates.push($scope.spot);
+                $scope.list.push($scope.spot);
             
                 console.log($scope.coordinates);
                 console.log($event);
@@ -37,13 +38,16 @@ angular.module('myApp')
                 $scope.coordinates.splice($index, 1);
                 }
             }
-
+           
             $scope.submit = function(){
                 if($scope.popForm) {
                     $scope.list.push($scope.popForm);
-                    $scope.popForm = ''
-                    console.log($scope.list)
+                    $scope.popForm = '';
+                    console.log($scope.list);
                     $scope.showPop = false;
+                    $scope.list.splice($index, 1);
+                    
+                    
                 }
             }
             
