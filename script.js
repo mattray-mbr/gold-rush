@@ -2,56 +2,41 @@ angular.module('myApp', []);
 
 angular.module('myApp')
     .controller('myController', ['$scope', function($scope){
-        
+
+        //--------declare variable ---------------
 			$scope.coordinates = [];
-            $scope.list = [];
-            $scope.popForm = 'comment';
-			$scope.doClick = function($event) {
+            $scope.xPosition = 0;
+            $scope.yPosition = 0;
+
+        //--------click function to add ----------
+			$scope.doClick = function(event) { //switched to doubleclick to make it easier
                 
-//              this logs coordiantes only
-//				var coords = {'x': 0, 'y': 0};
-//				coords['x'] = $event.pageX;
-//				coords['y'] = $event.pageY;
-//              $scope.coordinates.push(coords);
-//				console.log($scope.coordinates);
+                 var spot = {  
+                    coordinateX: $scope.xPosition = (event.pageX -8), //-8 is the offset on the image
+                    coordinateY: $scope.yPosition = (event.pageY -20),
+                    hover: false, //switch the visibility of the comment
+                    hideForm: false, //switch the visibility of the form
+                 }
                 
-//              .spot with client or pageX top left
-                // $scope.popUp = false;
-		        $scope.button = "submit";
-		        $scope.showPop = function($event) {
-			    $scope.popUp = !$scope.popUp
-		      }
-                
-                $scope.spot = {  
-                'top': $event.pageY + "px",
-				'left': $event.pageX + "px",
-			     }
-                $scope.coordinates.push($scope.spot);
-                $scope.list.push($scope.spot);
-            
-                console.log($scope.coordinates);
-                console.log($event);
-                console.log($scope.spot);
-            
-                
-                $scope.removeIt = function($index){
-                $scope.coordinates.splice($index, 1);
-                }
+            $scope.coordinates.push(spot); //add to array coordinates
+            console.log($scope.coordinates); 
             }
-           
-            $scope.submit = function(){
-                if($scope.popForm) {
-                    $scope.list.push($scope.popForm);
-                    $scope.popForm = '';
-                    console.log($scope.list);
-                    $scope.showPop = false;
-                    $scope.list.splice($index, 1);
-                    
-                    
-                }
+
+        //--------click function to remove ---------
+            $scope.removeIt = function(index){
+                $scope.coordinates.splice(index, 1);//remove coordinate if clicked
             }
-            
-    
+
+        //--------hover over mark to show comment -------
+            $scope.comment = function (index){
+                $scope.coordinates[index].hover = !$scope.coordinates[index].hover //switch value of hover
+            }
+                
+        //--------hide input box when done editing ---------------
+            $scope.blur = function(index){
+                $scope.coordinates[index].hideForm = !$scope.coordinates[index].hideForm
+            }
+               
 }])
 
 

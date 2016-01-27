@@ -5,20 +5,25 @@ box-styling: border-box;
 }
 
 .map {
-    background-image: url("topo-co.jpg");
+    /*background-image: url("topo-co.jpg");
 	background-size: cover;
-    background-position: center;
-	width: 100vw;	
-	height: 100vh;
+    background-position: center;*/
+	width: 100%;	
+	height: 100%;
 	position: relative;
+    z-index: 0;
 }
 
 .marker {
 	position:absolute;
-	width:2%;
-	height:3%;
+	width: 250px;
+    /* you dont need both width and height*/
+    /* offset in js file not with margin*/
     margin-left: -6px;
     margin-top: -1.5px;
+}
+.marker img {
+    width: 25px;
 }
 
 .textBox {
@@ -28,4 +33,13 @@ box-styling: border-box;
     margin-left: 10px;
     z-index: 2;
     /*overflow: hidden;*/
+}
+.comment {
+    position: relative;
+    top: -20px;
+    left: 25px;
+    width: auto;
+}
+.input-comment {
+    position: relative;
 }
